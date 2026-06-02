@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/users/', include('users.urls')),
     path('api/applications/', include('applications.urls')),
+    path('api/crs_calculator/', include('crs_calculator.urls')),
 ]

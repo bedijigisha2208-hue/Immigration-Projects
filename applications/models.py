@@ -34,5 +34,16 @@ class ImmigrationApplication(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return f"{self.user.username} - {self.application_type}"
+class ImmigrationStream(models.Model):
+    stream_name = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+    minimum_crs = models.IntegerField(null=True, blank=True)
+    processing_time = models.CharField(max_length=100, blank=True, null=True)
+    stream_type = models.CharField(max_length=100, blank=True, null=True)
+    province = models.CharField(max_length=100, blank=True, null=True)
+    def __str__(self):
+        return f"{self.stream_name}"
+
 
 
