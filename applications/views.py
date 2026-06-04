@@ -3,11 +3,13 @@
 from email.mime import application
 
 from django.shortcuts import render
-from .serializer import ImmigrationApplicationSerializer, ImmigrationStreamSerializer 
-from .models import ImmigrationApplication, ImmigrationStream
+from .serializer import ImmigrationApplicationSerializer, ImmigrationStreamSerializer, TimelineEventSerializer
+from .models import ImmigrationApplication, ImmigrationStream, TimelineEvent
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from .services.total_score import calculate_total_score
+
 
 from applications import serializer
 
@@ -82,6 +84,34 @@ class RecommendedStreamsView(APIView):
             streams = streams.filter(province__iexact=province)
         serializer = ImmigrationStreamSerializer(streams, many=True)
         return Response(serializer.data)
+class CreateTimelineEventView(APIView):
+    def post(self, request):
+        serializer = TimelineEventSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({
+                "message": "Timeline event created successfully!",
+                "data": serializer.data
+
+            }, status=201)    
+        return Response(serializer.errors, status=400)
+class ListTimelineEventsView(APIView):
+    def get(self, request, application_id):
+        events = TimelineEvent.objects.filter(application_id=application_id).order_by('event_date')
+        serializer = TimelineEventSerializer(events, many=True)
+        return Response(serializer.data)
+class DashboardView(APIView):
+    def get(self, request, application_id):
+        application = ImmigrationApplication.objects.get(id=application_id)
+        timeline_events = TimelineEvent.objects.filter(application_id=application_id).order_by('event_date')
+        return Response({
+            "application": {
+                "id": application.id
+            },
+            "timeline_events": TimelineEventSerializer(timeline_events, many=True).data,
+        })
+
+    
 
 
 

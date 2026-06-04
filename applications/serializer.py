@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ImmigrationApplication, ImmigrationStream
+from .models import ImmigrationApplication, ImmigrationStream, TimelineEvent
 
 class ImmigrationApplicationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,4 +9,8 @@ class ImmigrationApplicationSerializer(serializers.ModelSerializer):
 class ImmigrationStreamSerializer(serializers.ModelSerializer):
      class Meta:
          model = ImmigrationStream
-         fields = '__all__'        
+         fields = '__all__'  
+class TimelineEventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TimelineEvent 
+        fields = '__all__'

@@ -44,6 +44,16 @@ class ImmigrationStream(models.Model):
     province = models.CharField(max_length=100, blank=True, null=True)
     def __str__(self):
         return f"{self.stream_name}"
+class TimelineEvent(models.Model):
+    application = models.ForeignKey(ImmigrationApplication, on_delete=models.CASCADE, related_name='timeline_events')
+    event_type = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+    event_date = models.DateField()
+    status = models.CharField(max_length=100, blank=True, null=True)
+    def __str__(self):
+        return f"{self.application} - {self.event_type} on {self.event_date}" 
+    class Meta:
+        ordering = ['event_date']
 
 
 
