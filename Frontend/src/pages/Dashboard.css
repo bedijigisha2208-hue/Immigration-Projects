@@ -1,0 +1,72 @@
+.dashboard-container {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color:  #FFF9FC;
+    border: 1px solid #C7D2FE;
+
+}
+.card {
+    border: 1px solid #141313;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.feature-card {
+    background: linear-gradient(135deg, #F9A8D4, #C084FC) !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    color: #4A044E;
+    border-radius: 12px;
+    padding: 1rem;
+    height: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s; display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(139, 92, 246, 0.25);
+}
+.dashboard-title {
+    font-size: 3rem;
+    color: #BE185D;
+    font-weight: 700;
+    font-family: 'poppins';
+}
+.dashboard-subtitle {
+    font-size: 1.5rem;
+    color:#BE185D;
+
+}
+.feature-card h3 {
+    color: #BE185D;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    white-space: nowrap;
+}
+.feature-icon span{
+   font-size: 2.5rem;
+   margin-bottom: 0.5rem;
+}
+.timeline {
+    border: 1px;
+    border-style: solid;
+    font-size: 1.2rem;
+    background: #F8FAFC;
+    border-left: 4px solid #BE185D;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+.quick-actions {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+}

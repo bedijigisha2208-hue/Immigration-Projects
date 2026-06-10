@@ -1,0 +1,28 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    color: #FFFFFF;
+    font-family:'poppins';
+}
+.navbar-logo {
+    font-size: 1rem;
+    font-weight: 500;
+    max-width: 150px;
+    color: #C26B93;
+}
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+    color: #FFFFFF;
+}
+.navbar-links a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 400;
+}
+.navbar-links a:hover {
+    color: #C26B93;
+}
