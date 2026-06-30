@@ -1,0 +1,110 @@
+.info-container {
+    max-width: 2000px;
+    padding: 2rem;
+    margin: 0 auto;
+}
+.info-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.info-header h1 {
+    color:#ffffff;
+    font-weight: 500;
+    font-size: 4rem;
+    font-family: "playfair display";
+}
+.info-header h3 {
+    color: #b8bfd3;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+   
+}
+.stats-card {
+    background: #14213d;
+    border: 1px solid rgba(212,175,55,0.15);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid #D4AF37;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:#b8bfd3
+}
+.stats-card p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+.info-grid {
+    max-width: 1200px;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    background: #14213d;
+    backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    
+}
+.info-card {
+    background: #14213d;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #D4AF37;
+    border-radius: 16px;
+
+}
+.info-card h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+.info-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+}
+.info-item {
+    background: rgba(255,255,255, 0.03);
+    color: rgba(212, 175, 55, 0.15);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: left;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: centre;
+}
+.info-item label {
+    display: block;
+    color:#b8bfd3;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+.info-item {
+    font-size:1.2rem;
+    font-weight:600;
+    color: white;
+    margin: 0;
+}
+.progress-card {
+    width: 100%;
+    height: 12px;
+    background: #0d1b2a;
+    border-radius:999px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.2); 
+}
+.progress-fill {
+    width: 90%;
+    height: 100%;
+    color: #D4AF37;
+    border-radius: 999px;
+
+}
+

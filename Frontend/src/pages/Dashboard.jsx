@@ -12,12 +12,17 @@ const Dashboard = () => {
     const [dashboardData, setDashboardData] = useState(null);
 
     useEffect(() => {
-        getDashboard(3)
-        .then((data) => {setDashboardData(data)})
-        .catch((error) => {console.error(error)});
+        console.log("DASHBOARD STARING")
+        getDashboard()
+        .then((res) => {
+            console.log("RAW DATA", res)
+            setDashboardData(res)})
+        .catch((err) => {
+            console.error(err)
+        }); 
     }, []);
     if (!dashboardData) {
-        return <div>Loading...</div>;
+        return <div>Loading... check dashboard</div>;
     }
     return (
         <div className="dashboard-container">
@@ -27,12 +32,13 @@ const Dashboard = () => {
                 <FeatureCard icon ="👤" title="My Information" 
                 onClick={() => navigate("/MyInformation")} />
                 <FeatureCard icon="🧮" title="Calculator" 
-                onClick ={() => navigate("/CRSCalculator")} />
+                onClick ={() => navigate("/CRSCalculator"), {state: dashboardData.application}} />
                 <FeatureCard icon="🌎" title="Recommended Streams"
                 onClick ={() => navigate("/RecommendedStreams")} />
             </div>
             <ApplicationCard application={dashboardData.application}/>
              <Timeline timelineEvents={dashboardData.timeline_events} />
+             
 
         </div>
     );

@@ -2,8 +2,7 @@
     max-width: 2000px;
     margin: 0 auto;
     padding: 2rem;
-    background-color:  #FFF9FC;
-    border: 1px solid #C7D2FE;
+    background-color:  #0A1120;
 
 }
 .card {
@@ -11,13 +10,34 @@
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 1rem;
-    background-color: #FFFFFF;
+    background-color: #131D33;
+    border: 1px solid #D4AF37 ;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #F3F4F6;
+}
+.card h2 {
+    color: #F3F4F6;
+}
+.status-pill {
+    background: rgba(212, 175, 55, 0.15);
+    padding: 8px 16px;
+    display: inline flex;
+    color:  #D4AF37;
+    border-radius: 999px;
+    gap: 8px;
+    font-weight: 600px;
+    align-items: center;
+}
+.submitted {
+    color: #D4AF37;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.35);
 }
 .feature-card {
-    background: linear-gradient(135deg, #F9A8D4, #C084FC) !important;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    color: #4A044E;
+    background: #182234 !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px rgba(142, 175, 199, 0.08);
+    border: 1px solid rgba(212, 175,55, 0.15);
+    color: #F3F4F6;
     border-radius: 12px;
     padding: 1rem;
     height: 150px;
@@ -33,20 +53,45 @@
 .feature-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(139, 92, 246, 0.25);
+    border-color: #D4AF37;
 }
 .dashboard-title {
     font-size: 3rem;
-    color: #BE185D;
+    color:#F3F4F6;
     font-weight: 700;
     font-family: 'poppins';
+    position: relative;
+}
+.dashboard-title::after {
+    content: "";
+    width: 120px;
+    height: 3px;
+    background:  #D4AF37;
+    display: block;
+    margin: 15px auto;
+}
+.dashbard-hero {
+   position: relative;
+}
+.dashboard-hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(212, 175,55, 0.15);
+    filter: blur(100px);
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 .dashboard-subtitle {
     font-size: 1.5rem;
-    color:#BE185D;
+    color:#F3F4F6;
 
 }
 .feature-card h3 {
-    color: #BE185D;
+    color: #F3F4F6;
     font-size: 2rem;
     margin-top: 0.5rem;
     white-space: nowrap;
@@ -59,11 +104,12 @@
     border: 1px;
     border-style: solid;
     font-size: 1.2rem;
-    background: #F8FAFC;
-    border-left: 4px solid #BE185D;
+    background:  #131D33 ;
+    border: 1px solid  #D4AF37;
     padding: 1rem;
     margin-top: 1rem;
     border-radius: 10px;
+    color: #F3F4F6;
 }
 .quick-actions {
     display: flex;

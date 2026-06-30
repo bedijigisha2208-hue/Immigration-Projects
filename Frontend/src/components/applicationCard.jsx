@@ -1,9 +1,12 @@
+import {useEffect, useState} from "react"
+import {getDashboard} from "../api/dashboard"
 const ApplicationCard = ({ application }) => {
     return (
         <div className="card">
             <h2>Application #{application.id} </h2>
-            <h3>Status: {application.status}</h3>
-            <h3>Submission Date: {application.submission_date}</h3>
+
+            <span className="status-pill"> {application.application_status} </span>
+            <p>{application.submission_date}</p>
         </div>
     );
 };
