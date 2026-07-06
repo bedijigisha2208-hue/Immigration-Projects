@@ -32,7 +32,7 @@ const Dashboard = () => {
                 <FeatureCard icon ="👤" title="My Information" 
                 onClick={() => navigate("/MyInformation")} />
                 <FeatureCard icon="🧮" title="Calculator" 
-                onClick ={() => navigate("/CRSCalculator"), {state: dashboardData.application}} />
+                onClick ={() => navigate("/CRSCalculator", {state: dashboardData.application})} />
                 <FeatureCard icon="🌎" title="Recommended Streams"
                 onClick ={() => navigate("/RecommendedStreams")} />
             </div>

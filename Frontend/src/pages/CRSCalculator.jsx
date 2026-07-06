@@ -1,8 +1,9 @@
-import {useState} from "react"
+import {useState , useEffect} from "react"
 import './CRSCalculator.css'
 import {calculateCRS} from '../api/crscalculator'
 import {updateApplication} from '../api/updateApplication'
 import {useLocation} from "react-router-dom"
+import {getDashboard} from "../api/dashboard"
 const CRSCalculator = () => {
     const [formData, setFormData] = useState({
         age:"",
@@ -20,11 +21,13 @@ const CRSCalculator = () => {
         spouse_experience:"",
         spouse_language:"",
     });
-    const location = useLocation();
-    const application = location.state;
-    if(!application){
-        return<div> No application found </div>
-    };
+    const [application, setApplication] = useState(null);
+
+      useEffect(() => {
+         getDashboard().then((res) => {
+         setApplication(res.application);
+    });
+}, []);
     const [result, setResult] = useState(null);
 
     const handleCalculate = async () => {
@@ -40,9 +43,14 @@ const CRSCalculator = () => {
            const data = await calculateCRS(payload);
             setResult(data);
             alert ("Before API")
+             if(!application.id) {
+                console.error("No application Id found");
+                return;
+            }
             const vdata = await updateApplication(application.id ,{
-                crs_score: data.total_crs_score
+                crs_calculator: data.total_crs_score
             });
+           
             alert ("After API");
     }catch(error) {
         console.error(error)
@@ -278,7 +286,6 @@ const CRSCalculator = () => {
 
 
              <button
-             type="button"
              onClick={handleCalculate}>
                 Calculate CRS
              </button>
