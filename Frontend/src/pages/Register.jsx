@@ -1,6 +1,8 @@
 import {registerUser} from '../api/Register'
 import {useState} from 'react'
 import { Link } from "react-router-dom"
+import toast from 'react-hot-toast'
+import './Form.css'
 
 function Home() {
     return (
@@ -12,7 +14,7 @@ function Home() {
 
 const Register = () => {
     const[formData , setFormData] = useState({
-        username:"",
+        username:"",    
         email:"",
         country_of_citizenship:"",
         current_status:"",
@@ -31,14 +33,14 @@ const handleSubmit = async(e) => {
 
 
 if(formData.password !== formData.confirm_password){
-    alert("PASSWORD DON'T MATCH");
+    toast.error("PASSWORD DON'T MATCH");
     return
 }
 try {
     console.log("Submitting", formData)
     const response = await registerUser(formData)
     console.log("Success", response)
-    alert("Registration Successfull")
+    toast.success("Registration Successful")
 } catch(error) {
     console.error(error)
 }
@@ -95,12 +97,15 @@ return(
         name="confirm_password"
         placeholder="Confirm Password"
         value={formData.confirm_password}
-        onChange={handleChange}/>
+        onChange={handleChange}/> 
 
         <button type="submit"
         onClick={handleSubmit}>
             Register
         </button>
+        <p>
+            Already have an account? <Link to="/Login"> Login </Link>
+        </p>
 
 
         </form>

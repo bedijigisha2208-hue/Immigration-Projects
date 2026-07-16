@@ -1,8 +1,12 @@
-import { useState } from 'react'
+import { useState , useEffect } from 'react'
 import { loginUser } from '../api/login'
-
-
+import {useNavigate} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import {getDashboard} from '../api/dashboard'
+import toast from 'react-hot-toast'
+import './Form.css'
 const Login = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username:"",
         password:"",
@@ -11,10 +15,15 @@ const Login = () => {
     const handleChange = (e) => {
         setFormData({
             ...formData, 
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value ,
         });
     };
-
+    useEffect(() => {
+        getDashboard()
+        .then((res) => {
+            setFormData(res.application);
+        })
+    }, []);
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -22,18 +31,26 @@ const Login = () => {
     try {
         console.log(formData)
         const response = await loginUser(formData)
-        console.log("Login Sucessfull", response)
         localStorage.setItem("token", response.token);
-        alert("Login Sucessfull")
+        const dashboardData = await getDashboard();
+        if (dashboardData.application) {
+            navigate("/Dashboard");
+        } else {
+            navigate("/CreateApplication");
+        }
+        toast.success("Login Successful")
+     
+
     } catch(error) {
         console.error(error)
+        toast.error("WRONG CREDENTIALS")
     }
     };
 
     return (
         <div className="login-page">
-            <h2> Login User </h2>
-            <div className="Login Form">
+            <h1> Login User </h1>
+            <div className="login-form">
                 <form onSubmit={handleSubmit}>
                     <input 
                     name="username"
@@ -51,6 +68,8 @@ const Login = () => {
                     <button type="submit">
                         Login
                     </button>
+                    <p> Don't have an account? <Link to="/Register"> Register </Link>
+                    </p>
 
 
                 </form>

@@ -1,0 +1,107 @@
+.registration-form {
+    min-height: 100vh;
+    display:flex;
+    justify-items: center;
+    gap: 10px;
+    margin: 2rem;
+
+}
+
+.RegisterUser {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.RegisterUser h1 {
+    color: #ffffff;
+    font-weight: 500;
+    font-family: "Playfair Display"
+}
+.registration-form input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    gap: 15px;
+}
+.registration-form label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+
+}
+
+.login-form {
+    min-height: 100vh;
+    display:flex;
+    justify-items: center;
+    gap: 10px;
+    margin: 2rem;
+
+}
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.login-page h1 {
+    color: #ffffff;
+    font-weight: 500;
+    font-family: "Playfair Display"
+}
+.login-page input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    gap: 15px;
+}
+.login-form label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+
+}
+
+
+
+
+
+
+
+
+
+.create-application-form {
+    min-height: 100vh;
+    display:flex;
+    justify-items: center;
+    gap: 10px;
+    margin: 2rem;
+
+}
+
+.create-application-page {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.create-application-page h1 {
+    color: #ffffff;
+    font-weight: 500;
+    font-family: "Playfair Display"
+}
+.create-application-page input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    gap: 15px;
+}
+.create-application label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+
+}
+

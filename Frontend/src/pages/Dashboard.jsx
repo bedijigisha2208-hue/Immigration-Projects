@@ -6,7 +6,6 @@ import "./Dashboard.css";
 import FeatureCard from './FeatureCard';
 import { FaCalculator } from "react-icons/fa";
 import {useNavigate} from "react-router-dom";
-
 const Dashboard = () => {
     const navigate = useNavigate();
     const [dashboardData, setDashboardData] = useState(null);
@@ -38,7 +37,10 @@ const Dashboard = () => {
             </div>
             <ApplicationCard application={dashboardData.application}/>
              <Timeline timelineEvents={dashboardData.timeline_events} />
-             
+             <button onClick={() => navigate("/UpdateApplication" )}>
+
+                Edit Application
+             </button>
 
         </div>
     );
