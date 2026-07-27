@@ -1,6 +1,7 @@
 import {getRecommendedStreams} from "../api/recommendedStreams"
 import {useState, useEffect} from "react"
 import {getDashboard} from "../api/dashboard"
+import './RecommendeStreams.css'
 
 const RecommendedStreams = () => {
 const [Application, setApplication] = useState(null);
@@ -27,17 +28,21 @@ useEffect(() => {
     })
 } , [Application]);
 return (
-    <div>
-      <h1> Recommended Streams </h1>
-      <pre>
-        {JSON.stringify(streams, null, 2)}
-      </pre>
+    <div className="recommended-cards">
+      <h1> 🌎  Recommended Streams </h1>
       {streams.map((stream) => {
         return (
-            <div key={stream.id}>
+            <div className="card-name" key={stream.id}>
                 <h3>{stream.stream_name}</h3>
+                <div className="stream-info">
+                    <span>🌎 {stream.country}</span>
+                    <span>⭐ CRS {stream.minimum_crs}</span>
+                    <span>⏳ {stream.processing_time}</span>
+                    </div>
+                <div className="card-details">
                 <p> {stream.province}</p>
                 <p> {stream.description}</p>
+                </div>
                 </div>
         )
       })}

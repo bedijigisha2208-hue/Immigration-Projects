@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {createApplication} from '../api/createApplication';
 import {useNavigate} from 'react-router-dom';
 import toast from 'react-hot-toast';
+import './Form.css';
 
 const CreateApplication = () => {
     const navigate = useNavigate();

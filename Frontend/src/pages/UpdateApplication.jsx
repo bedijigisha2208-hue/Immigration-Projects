@@ -4,7 +4,6 @@ import {useNavigate} from 'react-router-dom';
 import {getDashboard} from '../api/dashboard';
 import toast from 'react-hot-toast';
 import './Form.css';
-
 const UpdateApplication = () => {
   const navigate = useNavigate();
     const [formData, setFormData] = useState({

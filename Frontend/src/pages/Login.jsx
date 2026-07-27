@@ -18,34 +18,34 @@ const Login = () => {
             [e.target.name]: e.target.value ,
         });
     };
-    useEffect(() => {
-        getDashboard()
-        .then((res) => {
-            setFormData(res.application);
-        })
-    }, []);
-
+   
     const handleSubmit = async(e) => {
         e.preventDefault();
-    
-    try {
-        console.log(formData)
-        const response = await loginUser(formData)
+         try {
+        console.log(formData);
+
+        const response = await loginUser(formData);
+
         localStorage.setItem("token", response.token);
-        const dashboardData = await getDashboard();
-        if (dashboardData.application) {
+
+        const dashboardData = await getDashboard()
+            .catch(() => null);
+
+        if (dashboardData?.application) {
             navigate("/Dashboard");
         } else {
             navigate("/CreateApplication");
         }
-        toast.success("Login Successful")
-     
 
-    } catch(error) {
-        console.error(error)
-        toast.error("WRONG CREDENTIALS")
+        toast.success("Login Successful");
+
+    } catch (error) {
+        console.error(error);
+        toast.error("WRONG CREDENTIALS");
     }
-    };
+};
+    
+
 
     return (
         <div className="login-page">
